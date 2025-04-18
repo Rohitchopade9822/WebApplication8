@@ -1,0 +1,56 @@
+﻿@model WebApplication8.Models.Product
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@using (Html.BeginForm("Create", "Productstore", FormMethod.Post))
+{
+<div class="align-self-auto">
+
+    @* <div class="align-self-auto">
+        @Html.LabelFor(testc=>testc.Id)
+    </div>
+
+    <div>
+        @Html.TextBoxFor(testc=>testc.Id)
+     </div> *@
+
+     
+    <div class="align-self-auto">
+        @Html.LabelFor(testc=>testc.Name)
+    </div>
+
+    <div>
+        @Html.TextBoxFor(testc=>testc.Name)    
+     </div>
+
+     
+    <div class="align-self-auto">
+            @Html.LabelFor(testc => testc.Description)
+    </div>
+
+    <div>
+            @Html.TextBoxFor(testc => testc.Description)
+    </div>
+
+
+
+        <div class="align-self-auto">
+            @Html.LabelFor(testc => testc.Category)
+        </div>
+
+        <div>
+            @Html.TextBoxFor(testc => testc.Category)
+        </div>
+
+
+        <div>
+           <input type="submit" value="save" />
+        </div>
+    
+</div>
+}
