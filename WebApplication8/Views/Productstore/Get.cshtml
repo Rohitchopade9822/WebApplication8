@@ -5,7 +5,9 @@
 *@
 @{
 }
-<a asp-action="Create" class="btn btn-dark">Create new Product</a>
+
+<a asp-action="Create" class="btn btn-success">Create new Product</a>
+
 <table class="table">
 
     <thead>
@@ -28,9 +30,25 @@
                 <td>@itam.Name</td>
                 <td>@itam.Description</td>
                 <td>@itam.Category</td>
-
                
+               <td>
+                    <a asp-action="GetbyId" asp-route-id="@itam.Id" class="btn btn-dark" >View</a>
+               </td>
+               <td>
+                    <a asp-action="Update" asp-route-id="@itam.Id" class="btn btn-dark">Update</a>
+               </td>
+               
+               <td>
+                   <form asp-action="Delete" asp-route-id="@itam.Id" style="display:inline;"
+                   onclick="return confirm('are you sure to delete this record');">
 
+                   <button type="submit">Delete</button>
+                  </form>
+                   
+               </td>
+
+
+              
             </tr>
 
         }

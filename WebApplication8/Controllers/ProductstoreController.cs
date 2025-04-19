@@ -12,16 +12,17 @@ namespace WebApplication8.Controllers
         {
             _contect = context;
         }
-        public IActionResult Create()
+        public IActionResult Create()   //action 
         {
             return View();
-        }
-        [HttpPost]
+        } 
+        [HttpPost] 
         public IActionResult Create(Product product)
         {
             _contect.products.Add(product);
             _contect.SaveChanges();
-            return View(); 
+            return RedirectToAction("Get");
+
         }
 
         [HttpGet]
@@ -30,8 +31,56 @@ namespace WebApplication8.Controllers
             var prodlist=_contect.products.ToList();
             return View(prodlist);
         }
-       
+
+        [HttpGet]
+        public IActionResult GetbyId(int id)
+        {
+            var Products = _contect.products.FirstOrDefault(p => p.Id == id);
+                
+            return View(Products);
+        }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var Products = _contect.products.FirstOrDefault(p => p.Id==id);
+
+            _contect.products.Remove(Products);
+            _contect.SaveChanges();
+
+            return RedirectToAction("Get");
+           
+        }
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            var Products = _contect.products.FirstOrDefault(p => p.Id == id);
+
+            return View(Products);
+        }
+        [HttpPost]
+        public IActionResult Update(Product product)
+        {
+            var producUpdate=_contect.products.FirstOrDefault(p=>p.Id==product.Id);
+
+            producUpdate.Name= product.Name;
+            producUpdate.Description = product.Description;
+            product.Category= product.Category;
+
+            _contect.SaveChanges();
+
+            return RedirectToAction("Get");
+
+
+
+            
+        }
+
+
+
+
+
 
 
     }
+
 }
