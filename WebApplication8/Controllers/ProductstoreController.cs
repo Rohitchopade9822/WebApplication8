@@ -70,16 +70,8 @@ namespace WebApplication8.Controllers
 
             return RedirectToAction("Get");
 
-
-
             
         }
-
-
-
-
-
-
 
     }
 

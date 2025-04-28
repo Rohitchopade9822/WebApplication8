@@ -1,0 +1,26 @@
+﻿@model WebApplication8.Models.User
+
+
+<h2>Register Page</h2>
+
+<form method="post" asp-action="Register" asp-controller="Wellcome">
+
+	<div class="col-sm-2">
+		<label for="Username">Username</label>
+
+		<input type="text" id="Username" name="Username" required />
+	</div>
+
+	<div class="col-sm-2">
+		<label for="Password">Password</label>
+
+		<input type="text" id="Password" name="Password" required />
+	</div>
+
+	<div>
+		<button type="submit" class="btn btn-success">Registe</button>
+	</div>
+	
+
+
+</form>
