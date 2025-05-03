@@ -11,7 +11,7 @@ namespace WebApplication8.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(  
-                name: "products",
+                name: " ",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)

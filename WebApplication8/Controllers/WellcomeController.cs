@@ -45,7 +45,41 @@ namespace WebApplication8.Controllers
 
             return View();
         }
-      
+        public IActionResult Changepassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Changepassword(Changepassword model)
+        {
+            var user = _context.users.FirstOrDefault(u => u.Username == model.Username);
+
+            if(user !=null && user.Password == model.CurrentPassword)
+            {
+                user.Password = model.Confirmpassword;    
+                _context.SaveChanges();
+
+                return RedirectToAction("Login");
+                 
+            }
+            else
+            {
+                ModelState.AddModelError("", "password or username is invalid");
+            }
+            return RedirectToAction("Login");
+
+
+
+        }
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ForgetPassword(forgetPassword forpassword)
+        {
+            return View();
+        }
 
 
     }
