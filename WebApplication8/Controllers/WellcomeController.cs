@@ -22,8 +22,8 @@ namespace WebApplication8.Controllers
 
             _context.users.Add(user);
             _context.SaveChanges();
-            return View();
-
+            
+            return RedirectToAction("Login");
         }
         public IActionResult Login()
         {
@@ -45,6 +45,8 @@ namespace WebApplication8.Controllers
 
             return View();
         }
+      
+
 
     }
 }
